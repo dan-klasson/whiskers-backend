@@ -4,7 +4,7 @@ import PQueue from 'p-queue';
 import path from 'path';
 import { mapResponseToMeta, IMeta } from './utils';
 
-const MAX_TOTAL_KITTIES = 200;
+const MAX_TOTAL_KITTIES = 10;
 const assetName = 'assets.json';
 const META_HASH = 'QmRQ9mB8UDRd3adMndj5NGTD9ajbJYuSQkbdm5mVQFWVxN';
 
@@ -12,8 +12,9 @@ const queue = new PQueue({ concurrency: 100 });
 
 (async () => {
   const assetPath = path.join(__dirname, assetName);
-  if (fs.existsSync(assetPath)) {
-    console.log('asset file exists');
+  const asset = JSON.parse(fs.readFileSync(assetPath, 'utf-8'));
+  if (asset.length) {
+    console.log('asset file already has content');
     return;
   }
 

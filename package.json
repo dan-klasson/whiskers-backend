@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "prod:start": "nodemon src/index.js",
+    "prod:start": "node src/index.js",
     "prod:ipfs": "node build/ipfs.js",
     "start": "nodemon src/index.ts",
     "ipfs": "node src/ipfs.ts",
