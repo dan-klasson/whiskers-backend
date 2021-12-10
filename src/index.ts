@@ -31,12 +31,12 @@ app.listen(port, () =>{
   console.log(`Listening on port ${port}.`)
 });
 
-router.get('/ipfs/random', (req, res) => {
+router.get('/ipfs/random', (req: any, res: any) => {
   const random = Math.floor(Math.random() * data.length);
   res.send(data[random]);
 });
 
-router.get('/ipfs/:page', (req, res) => {
+router.get('/ipfs/:page', (req: any, res: any) => {
   const end = (Number(req.params.page) * PAGE_SIZE) + PAGE_SIZE;
   const start = end - PAGE_SIZE;
   const results = data.slice(start, end - 1);

@@ -11,6 +11,7 @@ const META_HASH = 'QmRQ9mB8UDRd3adMndj5NGTD9ajbJYuSQkbdm5mVQFWVxN';
 const queue = new PQueue({ concurrency: 100 });
 
 (async () => {
+  // @ts-ignore
   const assetPath = path.join(__dirname, assetName);
   const asset = JSON.parse(fs.readFileSync(assetPath, 'utf-8'));
   if (asset.length) {
@@ -46,7 +47,7 @@ const queue = new PQueue({ concurrency: 100 });
       .get(parsed.thumbnailUri, {
         responseType: 'arraybuffer'
       })
-      .then(response => {
+      .then((response: AxiosResponse) => {
         parsed.thumbnail = Buffer.from(response.data, 'binary').toString('base64');
         results[i] = parsed;
       }).catch(async (err: any) => {

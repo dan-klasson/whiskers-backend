@@ -1,3 +1,4 @@
+// @ts-ignore
 import { cleanEnv, url } from 'envalid'
 import dotenv from 'dotenv';
 
