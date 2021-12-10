@@ -39,8 +39,6 @@ router.get('/ipfs/random', (req, res) => {
 router.get('/ipfs/:page', (req, res) => {
   const end = (Number(req.params.page) * PAGE_SIZE) + PAGE_SIZE;
   const start = end - PAGE_SIZE;
-  console.log(start, end - 1)
   const results = data.slice(start, end - 1);
-  console.log(results.length)
   res.send(results);
 });
